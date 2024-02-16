@@ -102,7 +102,7 @@
             >
               Life
               <img src="./images/heart.svg" alt="" />
-              <span id="current-life" >5</span>
+              <span id="current-life">5</span>
             </button>
             <!-- display score  -->
             <button
@@ -117,15 +117,20 @@
       </section>
       <!-- playground end  -->
       <!-- final score start  -->
-      <section class="score flex justify-center items-center h-screen hidden">
+      <section
+        id="final-score"
+        class="score flex justify-center items-center h-screen hidden"
+      >
         <div
           class="text-white p-10 rounded-2xl text-center space-y-8 bg-[#ffffff33]"
         >
+          <h3 class="text-4xl">Game Over!</h3>
           <h1 class="text-8xl">
             <span class="font-extrabold">Score:</span>
-            <span>14</span>
+            <span id="last-score">14</span>
           </h1>
           <button
+            onclick="play()"
             class="btn btn-lg hover:bg-white bg-white border-none text-black"
           >
             Play Again
