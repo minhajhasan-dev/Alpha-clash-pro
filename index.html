@@ -41,7 +41,7 @@
         <div class="flex flex-col items-center gap-20 pt-20">
           <!-- screen  -->
           <div
-            class="artboard artboard-horizontal phone-6 border border-[20px] rounded-2xl border-[#010313CC] bg-[#ffffffb3]"
+            class="artboard container artboard-horizontal phone-6 border border-[20px] rounded-2xl border-[#010313CC] bg-[#ffffffb3]"
           >
             <div class="flex justify-center">
               <p class="bg-[#2F2941] px-6 pb-2 rounded-b-xl text-white">
@@ -96,19 +96,21 @@
           <!-- Keyboard end-->
           <!-- life score -->
           <div class="flex justify-between w-3/4">
+            <!-- display life  -->
             <button
               class="btn rounded-full bg-[#894189] text-white hover:bg-[#894189] px-5"
             >
               Life
               <img src="./images/heart.svg" alt="" />
-              <span>1</span>
+              <span id="current-life" >5</span>
             </button>
+            <!-- display score  -->
             <button
               class="btn rounded-full bg-[#360490] text-white hover:bg-[#360490] px-5"
             >
               <img src="./images/heart.svg" alt="" />
               Score
-              <span>1</span>
+              <span id="current-score">0</span>
             </button>
           </div>
         </div>

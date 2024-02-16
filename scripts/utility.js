@@ -12,6 +12,22 @@ function setBackgroundColorById(elementId) {
   const element = document.getElementById(elementId);
   element.classList.add("bg-orange-400");
 }
+function removeBackgroundColorById(elementId) {
+  const element = document.getElementById(elementId);
+  element.classList.remove("bg-orange-400");
+}
+// এই ফাংশনের কাজ হচ্ছে স্কোর বা লাইফ থেকে ইলিমেন্ট নিয়ে কাজ করা
+// একই কাজ মেইন ফাংশনে ২ বার করা লাগছে, এই ফাংশনের কারণে ২ বার ফাংশন লেখার দরকার নেই, শুধু ওই ২ জায়গায় কল করে দিলেই খেল খতম
+function getTextElementValueById(elementId) {
+  const element = document.getElementById(elementId);
+  const elementValueText = element.innerText;
+  const value = parseInt(elementValueText);
+  return value;
+}
+function setTextElementValueById(elementId, value) {
+  const element = document.getElementById(elementId);
+  element.innerText = value;
+}
 
 function getARandomAlphabet() {
   // get or create an alphabet array
