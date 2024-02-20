@@ -10,8 +10,12 @@
 // working with audio
 
 const audio = new Audio();
+let isGamePlayOn = false;
 
 function handleKeyboardKeyUpEvent(event) {
+  if (isGamePlayOn === false) {
+    return;
+  }
   const playerPressed = event.key;
 
   // stop the game if pressed 'Esc'
@@ -96,17 +100,18 @@ function play() {
   // hide everything show only the playground
   hideElementById("home-screen");
   hideElementById("final-score");
-  showEelementById("play-ground");
+  showElementById("play-ground");
 
   // reset score and life
   setTextElementValueById("current-life", 5);
   setTextElementValueById("current-score", 0);
+  isGamePlayOn = true;
   continueGame();
 }
 
 function gameOver() {
   hideElementById("play-ground");
-  showEelementById("final-score");
+  showElementById("final-score");
   // update final score
   // 1. get the final score
   const lastScore = getTextElementValueById("current-score");
@@ -115,4 +120,5 @@ function gameOver() {
   // clear the last selected alphabet highlight
   const currentAlphabet = getElementTextById("current-alphabet");
   removeBackgroundColorById(currentAlphabet);
+  isGamePlayOn = false;
 }
