@@ -7,6 +7,10 @@
   playGroundSection.classList.remove("hidden");
 }
  */
+// working with audio
+
+const audio = new Audio();
+
 function handleKeyboardKeyUpEvent(event) {
   const playerPressed = event.key;
 
@@ -25,6 +29,10 @@ function handleKeyboardKeyUpEvent(event) {
   //check matched or not
   if (playerPressed === expectedAlphabet) {
     console.log("you got a point");
+    // play a sound starts here
+    audio.src = "../audio/success.mp3";
+    audio.play();
+    // play a sound ends here
     const currentScore = getTextElementValueById("current-score");
     const updatedScore = currentScore + 1;
     setTextElementValueById("current-score", updatedScore);
@@ -46,7 +54,10 @@ function handleKeyboardKeyUpEvent(event) {
     continueGame();
   } else {
     console.log("you missed! you lost a life");
-
+    // play a sound starts here
+    audio.src = "../audio/failed.mp3";
+    audio.play();
+    // play a sound ends here
     const currentLife = getTextElementValueById("current-life");
     const updatedLife = currentLife - 1;
     setTextElementValueById("current-life", updatedLife);
