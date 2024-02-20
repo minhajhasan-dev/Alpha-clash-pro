@@ -11,6 +11,7 @@
 
 const audio = new Audio();
 let isGamePlayOn = false;
+const artBoard = document.getElementById("art-board");
 
 function handleKeyboardKeyUpEvent(event) {
   if (isGamePlayOn === false) {
@@ -61,9 +62,16 @@ function handleKeyboardKeyUpEvent(event) {
     // play a sound starts here
     audio.src = "../audio/failed.mp3";
     audio.play();
+
     // play a sound ends here
     const currentLife = getTextElementValueById("current-life");
     const updatedLife = currentLife - 1;
+    // converting updatedLife to percentage for gradient
+    const updatedLifePercentage = (updatedLife / 5) * 100;
+    // art board background color change
+    artBoard.style.background = `linear-gradient(#ffffffb3 
+      ${updatedLifePercentage}%,red)`;
+
     setTextElementValueById("current-life", updatedLife);
 
     if (updatedLife === 0) {
@@ -121,4 +129,5 @@ function gameOver() {
   const currentAlphabet = getElementTextById("current-alphabet");
   removeBackgroundColorById(currentAlphabet);
   isGamePlayOn = false;
+  artBoard.style.background = `linear-gradient(#ffffffb3 100%,red)`;
 }
